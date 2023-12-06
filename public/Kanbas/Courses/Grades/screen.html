@@ -1,0 +1,14 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Kanbas/Courses/CourseNavigation/index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      import Grades from "./Grades.js";
+      const root = document.getElementById("root");
+      root.innerHTML = Grades();
+    </script>
+  </body>
+</html>
