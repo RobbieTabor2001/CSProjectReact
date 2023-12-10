@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import * as client from "./napster-service";
-import { Navigate, Route, Routes } from "react-router-dom";
-import NapsterSearch from "./napster-search";
-import NapsterAlbum from "./napster-album";
+// Project.js
+
+import React from "react";
+import { Route, Routes } from "react-router-dom";
 import UserList from "./users/list";
 import UserDetails from "./users/details";
 import SignIn from "./users/signin";
@@ -14,7 +12,10 @@ import store from "./store";
 import { Provider } from "react-redux";
 import CurrentUser from "./users/currentUser";
 import ProtectedAdminRoute from "./users/protectedAdminRoute";
-
+import ProjectHome from "./projecthome";
+import Search from "./search"; // Import the Search component
+import SongDetails from "./songdetails";
+import ProtectedContent from "./users/protectedContent";
 function Project() {
   return (
     <Provider store={store}>
@@ -25,15 +26,18 @@ function Project() {
           </div>
           <div className="col-9">
             <Routes>
-              <Route
-                path="/"
-                element={<Navigate to="/project/napster-search" />}
-              />
+              {/* Update this route to use ProjectHome */}
+              <Route path="/home" element={<ProjectHome />} />         
+              <Route path="/search" element={<Search />} />
+          <Route path="/search/details/:id" element={<SongDetails />} />
+              <Route path="/" element={<ProjectHome />} />
               <Route path="/signin" element={<SignIn />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/account" element={<Account />} />
-              <Route path="/napster-search" element={<NapsterSearch />} />
-              <Route path="/napster-album/:id" element={<NapsterAlbum />} />
+              <Route path="/account" element={
+                <ProtectedContent>
+                  <Account />
+                </ProtectedContent>
+              } />
               <Route
                 path="/users"
                 element={
@@ -43,6 +47,7 @@ function Project() {
                 }
               />
               <Route path="/users/:id" element={<UserDetails />} />
+              <Route path="/search" element={<Search />} /> {/* New route for Search */}
             </Routes>
           </div>
         </div>

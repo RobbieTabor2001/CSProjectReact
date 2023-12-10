@@ -20,6 +20,10 @@ export const updateUser = async (id, user) => {
   const response = await request.put(`${USERS_API}/${id}`, user);
   return response.data;
 };
+export const updateUsers = async (id, user) => {
+  const response = await request.put(`${USERS_API}s/${id}`, user);
+  return response.data;
+};
 
 export const signIn = async (credentials) => {
   const response = await request.post(`${USERS_API}/signin`, credentials);
@@ -38,5 +42,10 @@ export const account = async () => {
 
 export const signOut = async () => {
   const response = await request.post(`${USERS_API}/signout`);
+  return response.data;
+};
+
+export const findMostRecentUser = async () => {
+  const response = await request.get(`${USERS_API}/most-recent`);
   return response.data;
 };

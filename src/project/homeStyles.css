@@ -1,0 +1,83 @@
+/* Basic Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+}
+
+/* Home Container */
+.home-container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    max-width: 1200px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .home-container {
+        width: 95%;
+    }
+}
+
+/* Sections */
+.section-reviews, .section-songs {
+    margin-bottom: 2rem;
+}
+
+h2 {
+    margin-bottom: 1rem;
+}
+
+/* Reviews List */
+.reviews-list, .songs-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review-item, .song-item {
+    background: #f4f4f4;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.review-item:nth-child(even), .song-item:nth-child(even) {
+    background: #e4e4e4;
+}
+
+.song-info {
+    max-width: 70%;
+}
+
+.view-details-button {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 10px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+.view-details-button:hover {
+    background-color: #0056b3;
+}
+
+@media (max-width: 600px) {
+    .review-item, .song-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .song-info {
+        max-width: 100%;
+        margin-bottom: 10px;
+    }
+}

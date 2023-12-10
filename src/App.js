@@ -11,22 +11,9 @@ function App() {
   return (
     <HashRouter>
       <div>
-        {/* <div className="list-group">
-          <Link className="list-group-item" to="/Labs">
-            Labs
-          </Link>
-          <Link className="list-group-item" to="/hello">
-            Hello
-          </Link>
-          <Link className="list-group-item" to="/kanbas">
-            Kanbas
-          </Link>
-        </div> */}
+
         <Routes>
           <Route path="/" element={<Navigate to="/project" />} />
-          <Route path="/Labs/*" element={<Labs />} />
-          <Route path="/Kanbas/*" element={<Kanbas />} />
-          <Route path="/hello" element={<HelloWorld />} />
           <Route path="/project/*" element={<Project />} />
         </Routes>
       </div>
